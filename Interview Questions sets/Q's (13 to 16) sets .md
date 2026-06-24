@@ -8,54 +8,53 @@
   7. What is the difference between Dataflow and Dataproc?
   8. What is the difference between mutable and immutable data types in Python?
   9. Python Coding:
-Given:
-```python
-nums = [2,7,11,15]
-target = 9
-```
-Return:
-```python
-[0,1]
-```
-How would you solve this problem?
+       Given:
+       ```python
+       nums = [2,7,11,15]
+       target = 9
+       ```
+       Return:
+       ```python
+       [0,1]
+       ```
+      How would you solve this problem?
   10. Using a CTE, write a query to find the 3rd highest salary from an Employee table.
   11. Write an incremental load SQL query using an assumed source and target table.
   12. Write an Apache Beam function that you have used in your project.
   13. How do you validate data before inserting it into BigQuery?
   14. What methods are available for:
-* Batch data ingestion?
-* Streaming data ingestion?
-Explain the flow.
+       * Batch data ingestion?
+       * Streaming data ingestion?
+       Explain the flow.
   15. Write a SQL query to remove duplicate records from a table.
 ---
 ### Set 14: Airflow, GCS, Validation, DAG Design
   1. Self-Introduction
-  2. Explain your project and responsibilities.
- ### Follow-up Questions:
+  2. Explain your project and responsibilities. Follow-up Questions:
   3. What was the design structure of your DAGs?
   4. How do you identify that a file has arrived in GCS?
   5. What validations did you perform?
   6. Explain the validation logic implemented in your previous project.
   7. Explain your project folder structure.
   8. Write an Airflow DAG using:
-* PythonOperator
-* BashOperator
+      * PythonOperator
+      * BashOperator
   9. Explain each DAG parameter:
-* dag_id
-* schedule_interval
-* start_date
-* retries
-* retry_delay
-* catchup
-* default_args
+         * dag_id
+         * schedule_interval
+         * start_date
+         * retries
+         * retry_delay
+         * catchup
+         * default_args
   10. How would you handle late-arriving data?
   11. How do you configure Airflow for parallel processing?
  ### DAG-Level Settings:
-* max_active_runs
-* concurrency
+     * max_active_runs
+     * concurrency
  ### Airflow-Level Settings:
-* parallelism
-* worker_concurrency
+     * parallelism
+     * worker_concurrency
   12. Write Python code to read a file and execute it through an Airflow DAG.
   13. Write a query to identify duplicate records.
 ---
@@ -81,7 +80,8 @@ Expected Output:
 [0, 4, 2, 16]
 ```
   3. Transaction and Product Tables
-          Transaction Table:
+ Transaction Table:
+
           | product_id | user_id | purchased_date |
           | ---------- | ------- | -------------- |
           | 123        | US101   | 12-01-2024     |
@@ -91,17 +91,21 @@ Expected Output:
           | 123        | US401   | 25-03-2024     |
           | 456        | US401   | 25-03-2024     |
           | 123        | US601   | 12-01-2024     |
+     
           Product Table:
           | product_id | product_name | price |
           | ---------- | ------------ | ----- |
           | 123        | Earphone     | 50    |
           | 122        | Mouse        | 10    |
           | 124        | Keyboard     | 50    |
+     
           Write Python (Pandas/Numpy) code to generate:
+     
           | product_id | product_name | items_sold | total_revenue |
           | ---------- | ------------ | ---------- | ------------- |
           | 123        | Earphone     | 3          | 150           |
-  4. Given a sequence with one missing value, write Python code to identify the missing number.
+     
+  5. Given a sequence with one missing value, write Python code to identify the missing number.
 ---
 ### Set 16: Materialized Views, Authorized Views, Dataflow
   1. Where is data physically stored for a Materialized View?
