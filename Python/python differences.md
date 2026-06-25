@@ -1,35 +1,49 @@
 # 1. Difference between List, Tuple, and Set
 
-| Feature    | List      | Tuple     | Set           |
-| ---------- | --------- | --------- | ------------- |
-| Ordered    | ✅ Yes     | ✅ Yes     | ❌ No          |
-| Mutable    | ✅ Yes     | ❌ No      | ✅ Yes         |
-| Duplicates | ✅ Allowed | ✅ Allowed | ❌ Not Allowed |
-| Indexing   | ✅ Yes     | ✅ Yes     | ❌ No          |
-| Syntax     | `[]`      | `()`      | `{}`          |
+
+| Feature            | List                                                                                | Tuple              | Set                                                                                                   |
+| ------------------ | ----------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------- |
+| Ordered            | ✅ Yes                                                                               | ✅ Yes              | ❌ No                                                                                                  |
+| Mutable            | ✅ Yes                                                                               | ❌ No               | ✅ Yes                                                                                                 |
+| Duplicates         | ✅ Allowed                                                                           | ✅ Allowed          | ❌ Not Allowed                                                                                         |
+| Indexing           | ✅ Yes                                                                               | ✅ Yes              | ❌ No                                                                                                  |
+| Syntax             | `[]`                                                                                | `()`               | `{}`                                                                                                  |
+| Memory Usage       | More                                                                                | Less               | Moderate                                                                                              |
+| Performance        | Slower than Tuple                                                                   | Faster than List   | Fast lookup                                                                                           |
+| Use Case           | Dynamic collection                                                                  | Fixed data         | Unique values                                                                                         |
+| **Common Methods** | `append(), extend(), insert(), remove(), pop(), sort(), reverse(), clear(), copy()` | `count(), index()` | `add(), update(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), copy()` |
 
 ---
 
 # 2. Difference between List and Array
 
-| Feature     | List            | Array                         |
-| ----------- | --------------- | ----------------------------- |
-| Data types  | Mixed           | Same type                     |
-| Built-in    | ✅ Yes           | ❌ (`array` module or NumPy)   |
-| Performance | Slower          | Faster for numeric operations |
-| Memory      | More            | Less                          |
-| Best for    | General-purpose | Numerical computations        |
+| Feature            | List                                                                                | Array                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Data types         | Mixed data types                                                                    | Same data type only                                                                             |
+| Built-in           | ✅ Yes                                                                               | ❌ (`array` module or NumPy)                                                                     |
+| Performance        | Slower                                                                              | Faster for numeric operations                                                                   |
+| Memory             | More                                                                                | Less                                                                                            |
+| Indexing           | ✅ Yes                                                                               | ✅ Yes                                                                                           |
+| Dynamic size       | ✅ Yes                                                                               | ✅ Yes                                                                                           |
+| Best for           | General-purpose programming                                                         | Numerical computations                                                                          |
+| **Common Methods** | `append(), extend(), insert(), remove(), pop(), sort(), reverse(), clear(), copy()` | `append(), extend(), insert(), remove(), pop(), reverse(), fromlist(), tolist(), buffer_info()` |
 
 ---
 
 # 3. Difference between Dictionary and Set
 
-| Feature        | Dictionary      | Set             |
-| -------------- | --------------- | --------------- |
-| Stores         | Key-Value pairs | Unique values   |
-| Duplicate keys | ❌ No            | ❌ No duplicates |
-| Access         | By key          | No indexing     |
-| Syntax         | `{key:value}`   | `{value}`       |
+| Feature               | Dictionary                                                                                    | Set                                                                                                                           |
+| --------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Stores                | Key-Value pairs                                                                               | Unique values                                                                                                                 |
+| Duplicate Keys        | ❌ Not Allowed                                                                                 | N/A                                                                                                                           |
+| Duplicate Values      | ✅ Allowed                                                                                     | ❌ Not Allowed                                                                                                                 |
+| Access                | By key                                                                                        | No indexing                                                                                                                   |
+| Ordered (Python 3.7+) | ✅ Yes                                                                                         | ❌ No guaranteed order                                                                                                         |
+| Mutable               | ✅ Yes                                                                                         | ✅ Yes                                                                                                                         |
+| Syntax                | `{key: value}`                                                                                | `{value}`                                                                                                                     |
+| Best for              | Fast key-value lookup                                                                         | Removing duplicates, membership testing                                                                                       |
+| **Common Methods**    | `get(), keys(), values(), items(), update(), pop(), popitem(), setdefault(), clear(), copy()` | `add(), update(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), symmetric_difference(), copy()` |
+
 
 ---
 
@@ -45,41 +59,51 @@
 
 # 5. Difference between `==` and `is`
 
-| Feature    | `==`           | `is`            |
-| ---------- | -------------- | --------------- |
-| Checks     | Value equality | Object identity |
-| Compares   | Values         | Memory address  |
-| Common use | Compare data   | Compare objects |
+| Feature             | `==`                                      | `is`                                       |
+| ------------------- | ----------------------------------------- | ------------------------------------------ |
+| Checks              | Value equality                            | Object identity                            |
+| Compares            | Values                                    | Memory address                             |
+| Returns `True` when | Values are equal                          | Both variables refer to the same object    |
+| Common use          | Compare data                              | Compare objects (especially `None`)        |
+| Example             | `a=[1,2]`<br>`b=[1,2]`<br>`a == b → True` | `a=[1,2]`<br>`b=[1,2]`<br>`a is b → False` |
+
 
 ---
 
 # 6. Difference between `append()` and `extend()`
 
-| Feature          | `append()`  | `extend()`        |
-| ---------------- | ----------- | ----------------- |
-| Adds             | One element | Multiple elements |
-| List inside list | ✅ Yes       | ❌ No              |
-| Argument         | Any object  | Iterable          |
+| Feature            | `append()`                                              | `extend()`                                            |
+| ------------------ | ------------------------------------------------------- | ----------------------------------------------------- |
+| Adds               | One element                                             | Multiple elements                                     |
+| List inside list   | ✅ Yes                                                   | ❌ No                                                  |
+| Argument           | Any object                                              | Iterable                                              |
+| List size increase | +1                                                      | By number of elements                                 |
+| Example            | `a=[1,2]`<br>`a.append([3,4])`<br>Output: `[1,2,[3,4]]` | `a=[1,2]`<br>`a.extend([3,4])`<br>Output: `[1,2,3,4]` |
 
 ---
 
 # 7. Difference between `remove()`, `pop()`, and `del`
 
-| Feature          | `remove()` | `pop()`  | `del`           |
-| ---------------- | ---------- | -------- | --------------- |
-| Removes          | By value   | By index | By index/object |
-| Returns value    | ❌ No       | ✅ Yes    | ❌ No            |
-| Deletes variable | ❌ No       | ❌ No     | ✅ Yes           |
+| Feature                        | `remove()`                                            | `pop()`                                                            | `del`                                             |
+| ------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------- |
+| Removes                        | By value                                              | By index                                                           | By index/object                                   |
+| Returns removed value          | ❌ No                                                  | ✅ Yes                                                              | ❌ No                                              |
+| Deletes variable               | ❌ No                                                  | ❌ No                                                               | ✅ Yes                                             |
+| Raises error if item not found | ✅ Yes                                                 | ✅ Yes                                                              | ✅ Yes                                             |
+| Example                        | `a=[10,20,30]`<br>`a.remove(20)`<br>Output: `[10,30]` | `a=[10,20,30]`<br>`a.pop(1)`<br>Returns: `20`<br>Output: `[10,30]` | `a=[10,20,30]`<br>`del a[1]`<br>Output: `[10,30]` |
 
 ---
 
 # 8. Difference between `sort()` and `sorted()`
 
-| Feature                | `sort()`   | `sorted()`        |
-| ---------------------- | ---------- | ----------------- |
-| Original list modified | ✅ Yes      | ❌ No              |
-| Returns                | None       | New sorted object |
-| Works on               | Lists only | Any iterable      |
+| Feature                | `sort()`                                            | `sorted()`                                                                       |
+| ---------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Original list modified | ✅ Yes                                               | ❌ No                                                                             |
+| Returns                | `None`                                              | New sorted list                                                                  |
+| Works on               | Lists only                                          | Any iterable                                                                     |
+| Memory usage           | Less                                                | More (creates new list)                                                          |
+| Example                | `a=[3,1,2]`<br>`a.sort()`<br>`print(a)` → `[1,2,3]` | `a=[3,1,2]`<br>`b=sorted(a)`<br>`print(a)` → `[3,1,2]`<br>`print(b)` → `[1,2,3]` |
+
 
 ---
 
@@ -145,11 +169,17 @@
 
 # 15. Difference between `return` and `yield`
 
-| Feature          | `return`     | `yield`   |
-| ---------------- | ------------ | --------- |
-| Ends function    | ✅ Yes        | ❌ No      |
-| Returns          | Single value | Generator |
-| Memory efficient | ❌ No         | ✅ Yes     |
+| Feature         | `return`                                                     | `yield`                                                                                                 |
+| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| Purpose         | Returns the final result and exits the function              | Produces one value at a time without exiting the function                                               |
+| Function Type   | Normal function                                              | Generator function                                                                                      |
+| Execution       | Ends immediately after `return`                              | Pauses execution and resumes on the next iteration                                                      |
+| Values Returned | Single value (or multiple values at once)                    | One value at a time                                                                                     |
+| Memory Usage    | Higher (stores all results if created together)              | Lower (generates values lazily)                                                                         |
+| Best For        | Small datasets, simple functions                             | Large datasets, streaming data, pipelines                                                               |
+| Reusability     | Function must be called again                                | Continues from the previous state                                                                       |
+| Example         | `def square(x):`<br>  `return x*x`<br><br>`square(5)` → `25` | `def square(n):`<br>  `for i in range(n):`<br>    `yield i*i`<br><br>`list(square(5))` → `[0,1,4,9,16]` |
+
 
 ---
 
@@ -238,12 +268,13 @@
 
 # 24. Difference between Inheritance, Encapsulation, Polymorphism, and Abstraction
 
-| Concept       | Purpose                             |
-| ------------- | ----------------------------------- |
-| Inheritance   | Reuse existing class                |
-| Encapsulation | Hide data                           |
-| Polymorphism  | One interface, many implementations |
-| Abstraction   | Hide implementation details         |
+| Concept           | Purpose                                                        | Key Idea                                                        | Example                                                              |
+| ----------------- | -------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Inheritance**   | Reuse code from an existing class                              | Child class acquires properties and methods of the parent class | `class Dog(Animal):`                                                 |
+| **Encapsulation** | Protect data by restricting direct access                      | Bundle data and methods together using classes                  | Private variable: `self.__salary`                                    |
+| **Polymorphism**  | Use the same method name with different behaviors              | One interface, multiple implementations                         | `animal.sound()` calls different implementations for `Dog` and `Cat` |
+| **Abstraction**   | Hide implementation details and expose only essential features | Show *what* to do, hide *how* it is done                        | Abstract class with `@abstractmethod`                                |
+
 
 ---
 
@@ -299,11 +330,16 @@
 
 ---
 
-# 30. Difference between List Comprehension and Generator Expression
+# 30. Difference between List Comprehension and Dictionary Comprehension
 
-| Feature    | List Comprehension    | Generator Expression |
-| ---------- | --------------------- | -------------------- |
-| Syntax     | `[]`                  | `()`                 |
-| Memory     | More                  | Less                 |
-| Evaluation | Immediate             | Lazy                 |
-| Best for   | Small/medium datasets | Large datasets       |
+| Feature               | List Comprehension                                      | Dictionary Comprehension                                             |
+| --------------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
+| Purpose               | Used to create a **list** in a single line.             | Used to create a **dictionary (key-value pairs)** in a single line.  |
+| Output Type           | `list`                                                  | `dict`                                                               |
+| Syntax                | `[expression for item in iterable]`                     | `{key: value for item in iterable}`                                  |
+| Stores                | Values only                                             | Key-Value pairs                                                      |
+| Duplicate Values      | ✅ Allowed                                               | Values can duplicate, but **keys must be unique**                    |
+| Conditional Filtering | ✅ Supported                                             | ✅ Supported                                                          |
+| Best For              | Creating or transforming lists                          | Creating lookup tables or mappings                                   |
+| Example               | `[x*x for x in range(5)]`<br>Output: `[0, 1, 4, 9, 16]` | `{x: x*x for x in range(5)}`<br>Output: `{0:0, 1:1, 2:4, 3:9, 4:16}` |
+
